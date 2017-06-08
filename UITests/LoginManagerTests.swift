@@ -488,7 +488,7 @@ class LoginManagerTests: KIFTestCase {
         closeLoginManager()
     }
 
-    /*
+    
     func testLoginListShowsNoResults() {
         openLoginManager()
 
@@ -513,7 +513,7 @@ class LoginManagerTests: KIFTestCase {
 
         closeLoginManager()
     }
- */
+ 
     fileprivate func countOfRowsInTableView(_ tableView: UITableView) -> Int {
         var count = 0
         (0..<tableView.numberOfSections).forEach { section in
