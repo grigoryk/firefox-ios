@@ -384,7 +384,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIViewControllerRestorati
             case "private":
                 isPrivate = NSString(string: item.value ?? "false").boolValue
             case "deep-link":
-                guard let value = item.value else { break }
+                guard let value = item.value, Bundle.main.bundleIdentifier == sourceApplication else { break }
                 Router.shared.routeURL(value)
                 return true
             default: ()
