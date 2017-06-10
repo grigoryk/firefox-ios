@@ -22,13 +22,12 @@ class SettingsTest: BaseTestCase {
         navigator.goto(SettingsScreen)
         let appsettingstableviewcontrollerTableviewTable = app.tables["AppSettingsTableViewController.tableView"]
         appsettingstableviewcontrollerTableviewTable.cells["OpenWith.Setting"].swipeUp()
-        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Use Compact Tabs"])
         appsettingstableviewcontrollerTableviewTable.staticTexts["Use Compact Tabs"].swipeUp()
-        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"])
         appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"].swipeUp()
         appsettingstableviewcontrollerTableviewTable.staticTexts["Show Tour"].swipeUp()
+        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Show Tour"])
         wait(for: 2)
-        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Help"])
+        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Use Compact Tabs"])
         let helpMenu = appsettingstableviewcontrollerTableviewTable.cells["Help"]
         XCTAssertTrue(helpMenu.isEnabled)
         helpMenu.tap()
