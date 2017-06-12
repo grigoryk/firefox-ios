@@ -22,16 +22,25 @@ class SettingsTest: BaseTestCase {
         navigator.goto(SettingsScreen)
         let appsettingstableviewcontrollerTableviewTable = app.tables["AppSettingsTableViewController.tableView"]
         appsettingstableviewcontrollerTableviewTable.cells["OpenWith.Setting"].swipeUp()
-        appsettingstableviewcontrollerTableviewTable.staticTexts["Use Compact Tabs"].swipeUp()
-        appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"].swipeUp()
-        appsettingstableviewcontrollerTableviewTable.staticTexts["Show Tour"].swipeUp()
-        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Show Tour"])
-        wait(for: 2)
         waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Use Compact Tabs"])
+        appsettingstableviewcontrollerTableviewTable.staticTexts["Use Compact Tabs"].swipeUp()
+        
+        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"])
+        appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"].swipeUp()
+        
+        
+        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Privacy Policy"])
+        appsettingstableviewcontrollerTableviewTable.staticTexts["Privacy Policy"].swipeUp()
+        wait(for: 2)
+        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Show Tour"])
+        appsettingstableviewcontrollerTableviewTable.staticTexts["Show Tour"].swipeUp()
+      
+        waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Help"])
         let helpMenu = appsettingstableviewcontrollerTableviewTable.cells["Help"]
         XCTAssertTrue(helpMenu.isEnabled)
         helpMenu.tap()
-            waitForValueContains(app.textFields["url"], value: "support.mozilla.org")
+        
+        waitForValueContains(app.textFields["url"], value: "support.mozilla.org")
         waitforExistence(app.webViews.staticTexts["Firefox for iOS"])
         XCTAssertTrue(app.webViews.staticTexts["Firefox for iOS"].exists)
         let numTabs = app.buttons["Show Tabs"].value
@@ -50,4 +59,5 @@ extension XCTestCase {
         waitForExpectations(timeout: duration + 0.5)
     }
 }
+
 
