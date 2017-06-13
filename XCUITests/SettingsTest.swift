@@ -28,7 +28,6 @@ class SettingsTest: BaseTestCase {
         waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"])
         appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"].swipeUp()
         
-        
         waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Privacy Policy"])
         appsettingstableviewcontrollerTableviewTable.staticTexts["Privacy Policy"].swipeUp()
         wait(for: 2)
