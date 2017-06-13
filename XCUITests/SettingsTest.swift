@@ -25,15 +25,19 @@ class SettingsTest: BaseTestCase {
         waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Use Compact Tabs"])
         appsettingstableviewcontrollerTableviewTable.staticTexts["Use Compact Tabs"].swipeUp()
         
+        wait(for: 2)
         waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"])
         appsettingstableviewcontrollerTableviewTable.staticTexts["Passcode"].swipeUp()
         
+        wait(for: 2)
         waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Privacy Policy"])
         appsettingstableviewcontrollerTableviewTable.staticTexts["Privacy Policy"].swipeUp()
+        
         wait(for: 2)
         waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Show Tour"])
         appsettingstableviewcontrollerTableviewTable.staticTexts["Show Tour"].swipeUp()
-      
+        
+        wait(for: 2)
         waitforExistence(appsettingstableviewcontrollerTableviewTable.staticTexts["Help"])
         let helpMenu = appsettingstableviewcontrollerTableviewTable.cells["Help"]
         XCTAssertTrue(helpMenu.isEnabled)
