@@ -16,6 +16,11 @@ class SentryIntegration {
     func setup(profile: Profile) {
         assert(!enabled, "SentryIntegration.setup() should only be called once")
 
+        if DeviceInfo.isSimulator() {
+            Logger.browserLogger.error("Not enabling Sentry; Running on Simulator")
+            return
+        }
+
         if !(profile.prefs.boolForKey("settings.sendUsageData") ?? true) {
             Logger.browserLogger.error("Not enabling Sentry; Not enabled by user choice")
             return
