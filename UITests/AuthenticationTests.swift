@@ -24,6 +24,7 @@ class AuthenticationTests: KIFTestCase {
      * Tests HTTP authentication credentials and auto-fill.
      */
     func testAuthentication() {
+    
         loadAuthPage()
 
         // Make sure that 3 invalid credentials result in authentication failure.
