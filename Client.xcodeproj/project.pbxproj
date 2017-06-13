@@ -48,7 +48,6 @@
 		0BF648111A9C54E900BA963C /* TopSitesPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF648101A9C54E900BA963C /* TopSitesPanel.swift */; };
 		0BF8F8DA1AEFF1C900E90BC2 /* noTitle.html in Resources */ = {isa = PBXBuildFile; fileRef = 0BF8F8D91AEFF1C900E90BC2 /* noTitle.html */; };
 		19DE1F671EC13B6400428B8C /* LeanplumIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DE1F661EC13B6400428B8C /* LeanplumIntegration.swift */; };
-		19DE1F7B1EC13E8C00428B8C /* Leanplum.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 19DE1F781EC13E8C00428B8C /* Leanplum.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2805F5A61B8BCA7A00268FD1 /* ReadingList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D567181ADECE2700F1EFE7 /* ReadingList.framework */; };
 		28078A471B1507EF0053B46A /* ReadingList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4D567181ADECE2700F1EFE7 /* ReadingList.framework */; };
 		280CB1371C20E0A3005AF147 /* BookmarksSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280CB1361C20E0A3005AF147 /* BookmarksSynchronizer.swift */; };
@@ -484,7 +483,6 @@
 		E444F7E51B4B1CB600FEB19B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8E0FF31A932BD500161DC3 /* ImageIO.framework */; };
 		E444F8271B4C1E8800FEB19B /* Sync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2827315E1ABC9BE600AA1954 /* Sync.framework */; };
 		E4483B5A1ADED63300B485A7 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288A2D861AB8B3260023ABC3 /* Shared.framework */; };
-		E46175F31EBB73A10021AE8A /* KSCrash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46175F11EBB73A10021AE8A /* KSCrash.framework */; };
 		E46175F41EBB73A10021AE8A /* Sentry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E46175F21EBB73A10021AE8A /* Sentry.framework */; };
 		E46175F61EBB74390021AE8A /* SentryIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46175F51EBB74390021AE8A /* SentryIntegration.swift */; };
 		E47536ED1C85412C0022CC69 /* PrintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47536EC1C85412C0022CC69 /* PrintHelper.swift */; };
@@ -528,6 +526,7 @@
 		E4BCAAB91B0537E300855D82 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCAAB81B0537E300855D82 /* InstructionsViewController.swift */; };
 		E4BCAAD91B05380B00855D82 /* ClientPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BCAAD81B05380B00855D82 /* ClientPickerViewController.swift */; };
 		E4C358551AF144BA00299F7E /* FSReadingList.m in Sources */ = {isa = PBXBuildFile; fileRef = E4C358541AF144BA00299F7E /* FSReadingList.m */; };
+		E4C49F911EDF400800F3205F /* Leanplum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DE1F781EC13E8C00428B8C /* Leanplum.framework */; };
 		E4CD9E911A6897FB00318571 /* ReaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CD9E901A6897FB00318571 /* ReaderMode.swift */; };
 		E4CD9E9A1A68980A00318571 /* ReaderMode.js in Resources */ = {isa = PBXBuildFile; fileRef = E4CD9E991A68980A00318571 /* ReaderMode.js */; };
 		E4CD9F1D1A6D9C2800318571 /* WebServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CD9F1C1A6D9C2800318571 /* WebServerTests.swift */; };
@@ -580,6 +579,8 @@
 		E60D03281D511555002FE3F6 /* SyncStatusResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60D03171D511398002FE3F6 /* SyncStatusResolver.swift */; };
 		E60D032A1D5118DB002FE3F6 /* SyncStatusResolverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60D03291D5118DB002FE3F6 /* SyncStatusResolverTests.swift */; };
 		E6108FF91C84E91C005D25E8 /* BasePasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6108FF81C84E91C005D25E8 /* BasePasscodeViewController.swift */; };
+		E610B0161EDC583700DC9372 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610B0151EDC583700DC9372 /* Events.swift */; };
+		E610B0191EDC68FC00DC9372 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E610B0181EDC68FC00DC9372 /* EventTests.swift */; };
 		E61453BE1B750A1700C3F9D7 /* RollingFileLoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61453BD1B750A1700C3F9D7 /* RollingFileLoggerTests.swift */; };
 		E61D11681EAF8F43008A305B /* PanelDataObserversTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61D11671EAF8F43008A305B /* PanelDataObserversTests.swift */; };
 		E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
@@ -1235,7 +1236,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				19DE1F7B1EC13E8C00428B8C /* Leanplum.framework in Copy Frameworks */,
 				E62CFB3D1C89EFF700C01324 /* FxA.framework in Copy Frameworks */,
 				E601386A1C89EB9800DF9756 /* SQLite.framework in Copy Frameworks */,
 				E69DB08B1E97DEAA008A67E6 /* Telemetry.framework in Copy Frameworks */,
@@ -1804,6 +1804,8 @@
 		E60D03171D511398002FE3F6 /* SyncStatusResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncStatusResolver.swift; sourceTree = "<group>"; };
 		E60D03291D5118DB002FE3F6 /* SyncStatusResolverTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncStatusResolverTests.swift; sourceTree = "<group>"; };
 		E6108FF81C84E91C005D25E8 /* BasePasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePasscodeViewController.swift; sourceTree = "<group>"; };
+		E610B0151EDC583700DC9372 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		E610B0181EDC68FC00DC9372 /* EventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		E61453BD1B750A1700C3F9D7 /* RollingFileLoggerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RollingFileLoggerTests.swift; sourceTree = "<group>"; };
 		E619FB2F1E292BE100882B20 /* signedInUser.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = signedInUser.json; sourceTree = "<group>"; };
 		E61D11671EAF8F43008A305B /* PanelDataObserversTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelDataObserversTests.swift; sourceTree = "<group>"; };
@@ -2029,7 +2031,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E46175F31EBB73A10021AE8A /* KSCrash.framework in Frameworks */,
+				E4C49F911EDF400800F3205F /* Leanplum.framework in Frameworks */,
 				E46175F41EBB73A10021AE8A /* Sentry.framework in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
 				E69DB08A1E97DEAA008A67E6 /* Telemetry.framework in Frameworks */,
@@ -3402,6 +3404,7 @@
 			isa = PBXGroup;
 			children = (
 				E69DB0B81E97E2B5008A67E6 /* Supporting Files */,
+				E610B0151EDC583700DC9372 /* Events.swift */,
 				E69DB0B41E97E2AC008A67E6 /* PingCentre.swift */,
 				E69DB0B51E97E2AC008A67E6 /* Telemetry.swift */,
 			);
@@ -3412,6 +3415,7 @@
 			isa = PBXGroup;
 			children = (
 				E69DB0861E97DEAA008A67E6 /* Info.plist */,
+				E610B0181EDC68FC00DC9372 /* EventTests.swift */,
 			);
 			path = TelemetryTests;
 			sourceTree = "<group>";
@@ -4457,6 +4461,7 @@
 					E69DB07C1E97DEA9008A67E6 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 43AQ936H96;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F84B21BD1A090F8100AAB793;
 					};
@@ -4988,9 +4993,9 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Fuzi.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/JSONSchema.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/KSCrash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Sentry.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Leanplum.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftRouter.framework",
 			);
 			name = "Copy Carthage Dependencies";
 			outputPaths = (
@@ -5451,6 +5456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E610B0161EDC583700DC9372 /* Events.swift in Sources */,
 				E69DB0B71E97E2AC008A67E6 /* Telemetry.swift in Sources */,
 				E69DB0B61E97E2AC008A67E6 /* PingCentre.swift in Sources */,
 			);
@@ -5460,6 +5466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E610B0191EDC68FC00DC9372 /* EventTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6310,8 +6317,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.Fennec.NotificationService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e94ec555-c6c5-45ee-817e-096b9cb590f9";
-				PROVISIONING_PROFILE_SPECIFIER = "Fennec NotificationService";
+				PROVISIONING_PROFILE = "2ca221e2-03db-45b5-ad98-41b0caa46000";
+				PROVISIONING_PROFILE_SPECIFIER = "Fennec NotificationService Development";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;

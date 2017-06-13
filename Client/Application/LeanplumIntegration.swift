@@ -38,6 +38,7 @@ enum UserAttributeKeyName: String {
     case alternateMailClient = "Alternate Mail Client Installed"
     case focusInstalled = "Focus Installed"
     case klarInstalled = "Klar Installed"
+    case signedInSync = "Signed In Sync"
 }
 
 private enum SupportedLocales: String {
@@ -66,7 +67,7 @@ class LeanplumIntegration {
     private var enabled: Bool = false
     
     func shouldSendToLP() -> Bool {
-        return enabled && Leanplum.hasStarted()
+        return enabled && Leanplum.hasStarted() && !UIApplication.isInPrivateMode
     }
 
     func setup(profile: Profile) {
@@ -109,6 +110,7 @@ class LeanplumIntegration {
         userAttributesDict[UserAttributeKeyName.alternateMailClient.rawValue] = "mailto:"
         userAttributesDict[UserAttributeKeyName.focusInstalled.rawValue] = !canInstallFocus()
         userAttributesDict[UserAttributeKeyName.klarInstalled.rawValue] = !canInstallKlar()
+        userAttributesDict[UserAttributeKeyName.signedInSync.rawValue] = profile?.hasAccount()
 
         if let mailtoScheme = self.profile?.prefs.stringForKey(PrefsKeys.KeyMailToOption), mailtoScheme != "mailto:" {
             userAttributesDict["Alternate Mail Client Installed"] = mailtoScheme
@@ -133,6 +135,12 @@ class LeanplumIntegration {
         }
     }
 
+    func track(eventName: LeanplumEventName, withInfo: String) {
+        if shouldSendToLP() {
+            Leanplum.track(eventName.rawValue, withInfo: withInfo)
+        }
+    }
+    
     // States
 
     func advanceTo(state: String) {
@@ -166,9 +174,9 @@ class LeanplumIntegration {
     // Utils
     
     func setEnabled(_ enabled: Bool) {
-        if enabled {
-            self.start()
-        }
+        // Setting up Test Mode stops sending things to server.
+        if enabled { start() }
+        Leanplum.setTestModeEnabled(!enabled)
     }
 
     func canInstallFocus() -> Bool {
@@ -190,6 +198,12 @@ class LeanplumIntegration {
             return false
         }
         return  shouldShowFocusUI && (canInstallKlar() || canInstallFocus())
+    }
+
+    func setUserAttributes(attributes: [AnyHashable : Any]) {
+        if shouldSendToLP() {
+            Leanplum.setUserAttributes(attributes)
+        }
     }
 
     // Private

@@ -470,6 +470,7 @@ class TabTrayController: UIViewController {
 
     func SELdidClickAddTab() {
         openNewTab()
+        LeanplumIntegration.sharedInstance.track(eventName: .openedNewTab, withInfo: "Source: Tab Tray")
     }
 
     func SELdidTapLearnMore() {
@@ -563,13 +564,11 @@ class TabTrayController: UIViewController {
             fromView = emptyPrivateTabsView
         }
 
+        tabManager.willSwitchTabMode()
         privateMode = !privateMode
         // If we are exiting private mode and we have the close private tabs option selected, make sure
         // we clear out all of the private tabs
-        let exitingPrivateMode = !privateMode && profile.prefs.boolForKey("settings.closePrivateTabs") ?? false
-        if exitingPrivateMode {
-            tabManager.removeAllPrivateTabsAndNotify(false)
-        }
+        let exitingPrivateMode = !privateMode && tabManager.shouldClearPrivateTabs()
 
         toolbar.maskButton.setSelected(privateMode, animated: true)
         collectionView.layoutSubviews()
@@ -1215,7 +1214,7 @@ class TrayToolbar: UIView {
     lazy var menuButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage.templateImageNamed("bottomNav-menu-pbm"), for: .normal)
-        button.accessibilityLabel = AppMenuConfiguration.MenuButtonAccessibilityLabel
+        button.accessibilityLabel = Strings.AppMenuButtonAccessibilityLabel
         button.accessibilityIdentifier = "TabTrayController.menuButton"
         return button
     }()

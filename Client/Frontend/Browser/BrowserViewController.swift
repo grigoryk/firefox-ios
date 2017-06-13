@@ -17,7 +17,7 @@ import MobileCoreServices
 import WebImage
 import SwiftyJSON
 import Telemetry
-import KSCrash
+import Sentry
 
 private let log = Logger.browserLogger
 
@@ -555,7 +555,7 @@ class BrowserViewController: UIViewController {
     }
 
     fileprivate func hasPendingCrashReport() -> Bool {
-        return KSCrash.sharedInstance().crashedLastLaunch
+        return Client.shared?.crashedLastLaunch() ?? false
     }
 
     fileprivate func showRestoreTabsAlert() {
@@ -1404,7 +1404,7 @@ extension BrowserViewController: MenuActionDelegate {
             switch menuAction {
             case .openNewNormalTab:
                 self.openURLInNewTab(nil, isPrivate: false, isPrivileged: true)
-                LeanplumIntegration.sharedInstance.track(eventName: .openedNewTab)
+                LeanplumIntegration.sharedInstance.track(eventName: .openedNewTab, withInfo: "Source: Menu")
 
             // this is a case that is only available in iOS9
             case .openNewPrivateTab:
@@ -1428,8 +1428,8 @@ extension BrowserViewController: MenuActionDelegate {
                 NightModeHelper.setNightMode(self.profile.prefs, tabManager: self.tabManager, enabled: false)
             case .hideNightMode:
                 NightModeHelper.setNightMode(self.profile.prefs, tabManager: self.tabManager, enabled: true)
-            case .openQRCode:
-                self.openQRCode()
+            case .scanQRCode:
+                self.scanQRCode()
             case .openSettings:
                 self.openSettings()
             case .openTopSites:
@@ -1466,7 +1466,7 @@ extension BrowserViewController: MenuActionDelegate {
         }
     }
 
-    fileprivate func openQRCode() {
+    fileprivate func scanQRCode() {
         let qrCodeViewController = QRCodeViewController()
         qrCodeViewController.qrCodeDelegate = self
         let controller = UINavigationController(rootViewController: qrCodeViewController)
@@ -2122,9 +2122,9 @@ extension BrowserViewController: HomePanelViewControllerDelegate {
     func homePanelViewControllerDidRequestToSignIn(_ homePanelViewController: HomePanelViewController) {
         presentSignInViewController() // TODO UX Right now the flow for sign in and create account is the same
     }
-    
+
     func homePanelViewControllerDidRequestToOpenInNewTab(_ url: URL, isPrivate: Bool) {
-        self.tabManager.addTab(URLRequest(url: url), afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
+        self.tabManager.addTab(PrivilegedRequest(url: url) as URLRequest, afterTab: self.tabManager.selectedTab, isPrivate: isPrivate)
     }
 }
 
@@ -3021,6 +3021,7 @@ extension BrowserViewController: ContextMenuHelperDelegate {
             let addTab = { (rURL: URL, isPrivate: Bool) in
                 self.scrollController.showToolbars(animated: !self.scrollController.toolbarsShowing, completion: { _ in
                     let tab = self.tabManager.addTab(URLRequest(url: rURL as URL), afterTab: currentTab, isPrivate: isPrivate)
+                    LeanplumIntegration.sharedInstance.track(eventName: .openedNewTab, withInfo: "Source: Long Press Context Menu")
                     guard self.topTabsViewController == nil else {
                         return
                     }
@@ -3499,12 +3500,6 @@ extension BrowserViewController: TopTabsDelegate {
             return
         }
         urlBar.leaveOverlayMode()
-        
-        if selectedTab.isPrivate {
-            if profile.prefs.boolForKey("settings.closePrivateTabs") ?? false {
-                tabManager.removeAllPrivateTabsAndNotify(false)
-            }
-        }
     }
     
     func topTabsDidChangeTab() {
